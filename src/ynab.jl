@@ -72,11 +72,9 @@ function reconcile(transactions, reconcile_date, stmt_balance,
     end
     Dict("cleared" => cleared_balance,
          "uncleared" => uncleared_balance,
-         "open" => open_balance,
-         "stmt" => stmt_balance,
+         "diff" => diff,
          "cleared_tx" => cleared_tx,
          "uncleared_tx" => uncleared_tx,
-         "start_dt" => start_date,
          "end_dt" => reconcile_date)
 end
 end
