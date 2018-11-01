@@ -1,8 +1,25 @@
-module ynab-tools
+module ynab_tools
 function parse_date(s)
     df = Dates.DateFormat("yyyy-mm-dd")
     Dates.Date(s, df)
-end 
+end
+
+function format_acct(millidollars)
+    fspec = Formatting.FormatSpec(">8.2f")
+    s = ""
+    if millidollars < 0
+        millidollars = -millidollars
+        padding = 8 - Int(floor(log(10, millidollars)))
+        s = Formatting.fmt(fspec, millidollars/1000) * ")"
+        if padding > 0
+            s = repeat(" ", padding - 1) * "(" * lstrip(s)
+        else
+            s = "(" * s
+        end
+    else
+        s = " " * Formatting.fmt(fspec, millidollars/1000)
+    end
+end
 
 function build_header(api)
     key = api["key"]
