@@ -110,7 +110,6 @@ end
 # transactions = JSON.parse(ynab_api.account_transactions(api,
 #                                                         budget,
 #                                                         account))["data"]["transactions"]
-# rec = ynab_tools.reconcile(transactions, parse_date("2018-10-01"), 1000000,
-#                            parse_date("2018-09-01"), 750000)
-# reconcile_report(rec, parse_date("2018-10-01"), 1000000,
-#                  parse_date("2018-09-01"), 750000)
+# rec = ynab_tools.reconcile(transactions, ynab_tools.parse_date("2018-10-31"), 1000000,
+#                            ynab_tools.parse_date("2018-10-01"), 750000)
+# ynab_tools.reconcile_report(rec)
