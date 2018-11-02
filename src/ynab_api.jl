@@ -550,7 +550,7 @@ response data format.
 function scheduled_transaction(api, budget_id, transaction_id)
     ynab_get(api, "/budgets/$(budget_id)/scheduled_transactions/$transaction_id")
 end
-
+end
 
 
 # Example Usage
